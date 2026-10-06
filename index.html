@@ -1,0 +1,2431 @@
+```html
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Эжекем, туулган күнүңүз менен! ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --pink:#ff4f91;
+    --light-pink:#ff9fc3;
+    --purple:#9b5cff;
+    --gold:#ffd166;
+    --white:#ffffff;
+    --glass:rgba(255,255,255,.10);
+    --border:rgba(255,255,255,.20);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,79,145,.25),transparent 30%),
+        radial-gradient(circle at 85% 25%,rgba(155,92,255,.25),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(255,209,102,.10),transparent 30%),
+        linear-gradient(145deg,#080311,#160524,#080311);
+    overflow-x:hidden;
+}
+
+/* =========================
+   ЖЫЛДЫЗДАР
+========================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.3);
+    }
+}
+
+/* =========================
+   МУЗЫКА
+========================= */
+
+.music-button{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:100;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:rgba(20,5,35,.75);
+    color:white;
+    font-size:23px;
+    cursor:pointer;
+    backdrop-filter:blur(15px);
+    transition:.3s;
+}
+
+.music-button:hover{
+    transform:scale(1.12);
+}
+
+.music-button.playing{
+    animation:musicPulse 1.2s infinite;
+    box-shadow:0 0 30px rgba(255,79,145,.7);
+}
+
+@keyframes musicPulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+/* =========================
+   ЖАЛПЫ
+========================= */
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+section{
+    position:relative;
+    z-index:2;
+    padding:110px 0;
+}
+
+.glass{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.035)
+        );
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.3);
+}
+
+/* =========================
+   БАШКЫ БӨЛҮМ
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:12px 20px;
+
+    border-radius:50px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.07);
+
+    color:#ffd7e6;
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(60px,12vw,150px);
+
+    line-height:.82;
+
+    margin:35px 0 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffd0e2,
+            #fff,
+            #d9c9ff
+        );
+
+    background-size:250%;
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:
+        shine 5s linear infinite,
+        fadeUp 1s .2s both;
+}
+
+@keyframes shine{
+    to{
+        background-position:250%;
+    }
+}
+
+.hero p{
+    max-width:720px;
+
+    margin:auto;
+
+    color:#d9cedd;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    animation:
+        fadeUp 1s .4s both;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:35px;
+}
+
+.btn{
+    position:relative;
+
+    overflow:hidden;
+
+    border:0;
+
+    padding:16px 25px;
+
+    border-radius:18px;
+
+    color:white;
+
+    font-family:Montserrat,sans-serif;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f91,
+            #9b5cff
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,79,145,.25);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:
+        translateY(-6px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 45px
+        rgba(255,79,145,.45);
+}
+
+.btn::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.4),
+            transparent
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:.6s;
+}
+
+.btn:hover::after{
+    transform:
+        translateX(120%);
+}
+
+.btn.dark{
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid var(--border);
+}
+
+.btn.gold{
+    color:#301b00;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d99b25,
+            #ffe08a
+        );
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:55px;
+}
+
+.kicker{
+    color:#ff91b9;
+
+    letter-spacing:4px;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+}
+
+.section-title h2{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(45px,7vw,75px);
+
+    margin:10px 0;
+}
+
+.section-title p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:#bfb1c5;
+
+    line-height:1.8;
+}
+
+/* =========================
+   КАРТОЧКАЛАР
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    min-height:230px;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,130,177,.6);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,79,145,.16);
+
+    filter:blur(30px);
+
+    right:-60px;
+
+    top:-60px;
+}
+
+.card-icon{
+    font-size:45px;
+
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-size:21px;
+
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#bdb0c4;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+/* =========================
+   СЮРПРИЗДЕР
+========================= */
+
+.surprises{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:16px;
+}
+
+.gift{
+    min-height:190px;
+
+    border-radius:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    padding:20px;
+
+    transition:.4s;
+}
+
+.gift:hover{
+    transform:
+        translateY(-10px)
+        rotate(-1deg);
+
+    background:
+        rgba(255,255,255,.15);
+}
+
+.gift-icon{
+    font-size:58px;
+
+    transition:.4s;
+}
+
+.gift:hover .gift-icon{
+    transform:
+        scale(1.2)
+        rotate(8deg);
+}
+
+.gift span{
+    margin-top:15px;
+
+    color:#e8dce9;
+
+    font-size:13px;
+}
+
+/* =========================
+   КУТТУКТОО
+========================= */
+
+.message{
+    max-width:850px;
+
+    margin:auto;
+
+    padding:50px;
+
+    border-radius:32px;
+
+    text-align:center;
+}
+
+.quote{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(32px,5vw,55px);
+
+    line-height:1.15;
+}
+
+.signature{
+    margin-top:25px;
+
+    color:#ff9fc3;
+
+    font-weight:700;
+}
+
+/* =========================
+   ЖАШЫРУУН КАТ
+========================= */
+
+.envelope{
+    max-width:650px;
+
+    margin:auto;
+
+    min-height:330px;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.5s;
+}
+
+.envelope:hover{
+    transform:
+        translateY(-8px);
+}
+
+.closed-icon{
+    font-size:85px;
+}
+
+.closed h3{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:45px;
+
+    margin:15px 0;
+}
+
+.closed p{
+    color:#aaa0b0;
+}
+
+.letter{
+    display:none;
+}
+
+.envelope.open .closed{
+    display:none;
+}
+
+.envelope.open .letter{
+    display:block;
+
+    animation:
+        fadeUp .7s;
+}
+
+.letter h3{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:50px;
+
+    margin:10px 0;
+}
+
+.letter p{
+    color:#ddd2df;
+
+    line-height:1.9;
+}
+
+/* =========================
+   ОЮН
+========================= */
+
+.game{
+    padding:35px;
+
+    border-radius:30px;
+
+    text-align:center;
+}
+
+.score{
+    color:#d9cddd;
+
+    margin-bottom:15px;
+}
+
+.score b{
+    color:#ffd166;
+
+    font-size:30px;
+}
+
+#balloons{
+    height:330px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+}
+
+.balloon{
+    position:absolute;
+
+    font-size:58px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    animation:
+        float 4s
+        ease-in-out
+        infinite;
+
+    transition:.2s;
+}
+
+.balloon:hover{
+    transform:
+        scale(1.15);
+}
+
+@keyframes float{
+    50%{
+        transform:
+            translateY(-20px)
+            rotate(5deg);
+    }
+}
+
+/* =========================
+   ФИНАЛ
+========================= */
+
+.final{
+    text-align:center;
+
+    padding-bottom:150px;
+}
+
+.final h2{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(60px,10vw,115px);
+
+    line-height:.9;
+
+    margin:20px 0;
+}
+
+.final-text{
+    max-width:700px;
+
+    margin:auto;
+
+    color:#d9cedd;
+
+    line-height:1.8;
+
+    font-size:18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    position:relative;
+
+    z-index:2;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#76697d;
+
+    font-size:12px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(5,1,12,.82);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(600px,100%);
+
+    padding:45px;
+
+    border-radius:32px;
+
+    text-align:center;
+
+    position:relative;
+
+    animation:
+        pop .4s;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.7);
+
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+
+        opacity:1;
+    }
+}
+
+.modal-icon{
+    font-size:70px;
+}
+
+.modal-box h3{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:50px;
+
+    margin:10px 0;
+}
+
+.modal-box p{
+    color:#d0c3d3;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+.close{
+    position:absolute;
+
+    right:18px;
+
+    top:14px;
+
+    border:0;
+
+    background:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+#confetti{
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:150;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .surprises{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:68px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .surprises{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .gift{
+        min-height:145px;
+    }
+
+    .gift-icon{
+        font-size:43px;
+    }
+
+    .message{
+        padding:30px 20px;
+    }
+
+    .envelope{
+        padding:30px 20px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     ЖЫЛДЫЗДАР
+========================= -->
+
+<div id="stars"></div>
+
+
+<!-- =========================
+     CONFETTI
+========================= -->
+
+<canvas id="confetti"></canvas>
+
+
+<!-- =========================
+     МУЗЫКА
+========================= -->
+
+<button
+    class="music-button"
+    id="musicBtn"
+    title="Музыканы күйгүзүү"
+>
+    ♫
+</button>
+
+
+<!-- =========================
+     БАШКЫ БӨЛҮМ
+========================= -->
+
+<header class="hero">
+
+<div class="container hero-content">
+
+<div class="badge">
+✦ БҮГҮН СИЗДИН КҮНҮҢҮЗ ✦
+</div>
+
+
+<h1>
+Эжекем,<br>
+Туулган күнүңүз менен! ❤️
+</h1>
+
+
+<p>
+
+Бул кичинекей дүйнө —
+сизге арналган.
+
+Ар бир баскычтын артында
+өзүнчө бир сюрприз бар.
+
+Баарын ачып көрүңүз! ✨
+
+</p>
+
+
+<div class="buttons">
+
+<button
+    class="btn"
+    onclick="startMagic()"
+>
+✨ Сыйкырды баштаңыз
+</button>
+
+
+<button
+    class="btn dark"
+    onclick="goToSurprises()"
+>
+🎁 Сюрприздерге өтүңүз
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     СИЗ ЖӨНҮНДӨ
+========================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="kicker">
+СИЗ ЖӨНҮНДӨ
+</div>
+
+
+<h2>
+Сиз жөн гана эже эмессиз…
+</h2>
+
+
+<p>
+
+Сиз — үйдүн жылуулугу,
+күлкүбүздүн себеби жана
+эң сонун адамдардын бирисиз.
+
+</p>
+
+</div>
+
+
+
+<div class="cards">
+
+
+<div class="glass card">
+
+<div class="card-icon">
+🌷
+</div>
+
+
+<h3>
+Жылуулук
+</h3>
+
+
+<p>
+
+Сиздин бир жылмаюуңуз
+кадимки күндү да
+өзгөчө күнгө айландырат.
+
+</p>
+
+</div>
+
+
+
+<div class="glass card">
+
+<div class="card-icon">
+✨
+</div>
+
+
+<h3>
+Сыйкыр
+</h3>
+
+
+<p>
+
+Сиздин адамдарга берген
+мээримиңизди эч бир сөз
+менен толук сүрөттөп болбойт.
+
+</p>
+
+</div>
+
+
+
+<div class="glass card">
+
+<div class="card-icon">
+👑
+</div>
+
+
+<h3>
+Биздин эже
+</h3>
+
+
+<p>
+
+Сиздин ордуңуз өзгөчө.
+
+Ошондуктан бүгүн бүт дүйнө
+сиз үчүн бир аз көбүрөөк жаркырайт.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     СЮРПРИЗДЕР
+========================= -->
+
+<section id="surprises">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="kicker">
+КҮТҮЛБӨГӨН НЕРСЕЛЕР
+</div>
+
+
+<h2>
+Сюрприздерди ачыңыз! 🎁
+</h2>
+
+
+<p>
+
+Ар бир кутучаны басып көрүңүз.
+
+Кайсынысында эмне бар экенин
+эч ким билбейт. 😉
+
+</p>
+
+</div>
+
+
+
+<div class="surprises">
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(1)"
+>
+
+<div class="gift-icon">
+💌
+</div>
+
+<span>
+Жашыруун кат
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(2)"
+>
+
+<div class="gift-icon">
+🌹
+</div>
+
+<span>
+Сизге арналган өзгөчө сөз
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(3)"
+>
+
+<div class="gift-icon">
+🌟
+</div>
+
+<span>
+Сиздин супер күчүңүз
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(4)"
+>
+
+<div class="gift-icon">
+🎂
+</div>
+
+<span>
+Торттун сыры
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(5)"
+>
+
+<div class="gift-icon">
+🪄
+</div>
+
+<span>
+Сыйкырдуу тилек
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(6)"
+>
+
+<div class="gift-icon">
+💎
+</div>
+
+<span>
+Сиздин бааңыз
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(7)"
+>
+
+<div class="gift-icon">
+🦋
+</div>
+
+<span>
+Жаңы башталыш
+</span>
+
+</div>
+
+
+
+<div
+    class="glass gift"
+    onclick="openSurprise(8)"
+>
+
+<div class="gift-icon">
+❤️
+</div>
+
+<span>
+Эң чоң сюрприз
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     КУТТУКТОО
+========================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="kicker">
+ЖҮРӨКТӨН ЧЫККАН СӨЗДӨР
+</div>
+
+
+<h2>
+Сизге арналат
+</h2>
+
+</div>
+
+
+
+<div class="glass message">
+
+<div class="quote">
+
+“Жашооңуз ар дайым
+бүгүнкүдөй жарык,
+жүрөгүңүз тынч,
+жүзүңүз күлкүгө толуп турсун.
+
+Сиз эң сонун нерселерге
+татыктуусуз.”
+
+</div>
+
+
+<div class="signature">
+
+— Сизди абдан жакшы көргөн
+бир адамдан ❤️
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ЖАШЫРУУН КАТ
+========================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="kicker">
+АТАЙЫН КАТ
+</div>
+
+
+<h2>
+Муну сөзсүз ачыңыз 💌
+</h2>
+
+</div>
+
+
+
+<div
+    class="glass envelope"
+    id="envelope"
+    onclick="openLetter()"
+>
+
+
+<div class="closed">
+
+<div class="closed-icon">
+💌
+</div>
+
+
+<h3>
+Сиз үчүн кат
+</h3>
+
+
+<p>
+Ачуу үчүн басыңыз…
+</p>
+
+</div>
+
+
+
+<div class="letter">
+
+<div style="font-size:65px;">
+🌸
+</div>
+
+
+<h3>
+Эжекем!
+</h3>
+
+
+<p>
+
+Туулган күнүңүз менен!
+
+Сизге ар дайым бекем ден соолук,
+узун өмүр, чексиз бакыт
+жана жүрөгүңүз каалаган
+бардык жакшылыктарды каалайбыз.
+
+Кандай гана кыялыңыз болсо да,
+бир күнү алардын баары
+чындыкка айлансын.
+
+Жолуңуз дайыма ачык,
+көңүлүңүз жарык,
+жүзүңүз күлкүгө толуп турсун.
+
+Үй-бүлөбүздүн бактысы болуп,
+ар дайым аман-эсен жүрө бериңиз.
+
+Сиз бар болгонуңуз үчүн
+чоң рахмат!
+
+Сизди абдан жакшы көрөбүз. ❤️
+
+</p>
+
+
+<br>
+
+
+<button
+    class="btn"
+    onclick="event.stopPropagation();fireworks()"
+>
+🎆 Дагы бир сыйкырды көрүңүз
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     МИНИ ОЮН
+========================= -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-title">
+
+<div class="kicker">
+МИНИ ОЮН
+</div>
+
+
+<h2>
+Шарларды жардырыңыз! 🎈
+</h2>
+
+
+<p>
+
+10 шарды жардырсаңыз —
+жашыруун финалдык
+сюрприз ачылат.
+
+</p>
+
+</div>
+
+
+
+<div class="glass game">
+
+
+<div class="score">
+
+Упай:
+
+<b id="score">
+0
+</b>
+
+/
+10
+
+</div>
+
+
+<div id="balloons">
+</div>
+
+
+<button
+    class="btn dark"
+    onclick="newGame()"
+>
+🔄 Кайра ойноңуз
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ФИНАЛ
+========================= -->
+
+<section class="final">
+
+<div class="container">
+
+
+<div class="kicker">
+АКЫРКЫ СЮРПРИЗ
+</div>
+
+
+<h2>
+
+Сиздин күлкүңүз<br>
+эң кооз нерсе. 💖
+
+</h2>
+
+
+<p class="final-text">
+
+Бүгүн сизге арналган
+эң чоң тилек:
+
+ар бир кийинки жылыңыз
+мурункусунан да бактылуу,
+жаркын жана сонун болсун!
+
+Ар бир күнүңүздө
+кубанычтуу көз ирмемдер
+көп болсун. ✨
+
+</p>
+
+
+
+<div class="buttons">
+
+
+<button
+    class="btn gold"
+    onclick="fireworks()"
+>
+🎆 Аспанды жаркыраталы
+</button>
+
+
+<button
+    class="btn"
+    onclick="megaSurprise()"
+>
+💖 Чоң сюрпризди ачыңыз
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+Сиз үчүн атайын сүйүү менен даярдалды ❤️
+
+</footer>
+
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+
+<div class="glass modal-box">
+
+
+<button
+    class="close"
+    onclick="closeModal()"
+>
+×
+</button>
+
+
+<div
+    class="modal-icon"
+    id="modalIcon"
+>
+✨
+</div>
+
+
+<h3 id="modalTitle">
+Сюрприз
+</h3>
+
+
+<p id="modalText">
+</p>
+
+
+<button
+    class="btn"
+    onclick="closeModal()"
+>
+💗 Рахмат!
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================
+   ЖЫЛДЫЗДАР
+========================================= */
+
+const stars =
+    document.getElementById("stars");
+
+
+for(
+    let i = 0;
+    i < 120;
+    i++
+){
+
+    const star =
+        document.createElement("span");
+
+
+    star.className =
+        "star";
+
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+
+    star.style.animationDelay =
+        Math.random() * 2 + "s";
+
+
+    stars.appendChild(star);
+
+}
+
+
+/* =========================================
+   МУЗЫКА
+========================================= */
+
+let audioContext;
+
+let musicPlaying = false;
+
+let musicTimer;
+
+
+const notes = [
+
+    261.63,
+    329.63,
+    392,
+    523.25,
+    392,
+    329.63,
+
+    293.66,
+    349.23,
+    440,
+    587.33,
+    440,
+    349.23
+
+];
+
+
+function playTone(
+    frequency,
+    duration = .25,
+    delay = 0
+){
+
+    if(!audioContext)
+        return;
+
+
+    setTimeout(()=>{
+
+        const oscillator =
+            audioContext
+            .createOscillator();
+
+
+        const gain =
+            audioContext
+            .createGain();
+
+
+        oscillator.type =
+            "sine";
+
+
+        oscillator.frequency.value =
+            frequency;
+
+
+        gain.gain.setValueAtTime(
+            .0001,
+            audioContext.currentTime
+        );
+
+
+        gain.gain
+            .exponentialRampToValueAtTime(
+                .08,
+                audioContext.currentTime + .02
+            );
+
+
+        gain.gain
+            .exponentialRampToValueAtTime(
+                .0001,
+                audioContext.currentTime + duration
+            );
+
+
+        oscillator
+            .connect(gain)
+            .connect(
+                audioContext.destination
+            );
+
+
+        oscillator.start();
+
+
+        oscillator.stop(
+            audioContext.currentTime
+            + duration
+            + .03
+        );
+
+    },delay);
+
+}
+
+
+function melody(){
+
+    if(!musicPlaying)
+        return;
+
+
+    notes.forEach(
+        (note,index)=>{
+
+            playTone(
+                note,
+                .28,
+                index * 260
+            );
+
+        }
+    );
+
+
+    musicTimer =
+        setTimeout(
+            melody,
+            notes.length * 260 + 100
+        );
+
+}
+
+
+document
+    .getElementById("musicBtn")
+    .addEventListener(
+        "click",
+        function(){
+
+            if(!audioContext){
+
+                audioContext =
+                    new (
+                        window.AudioContext ||
+                        window.webkitAudioContext
+                    )();
+
+            }
+
+
+            if(
+                audioContext.state ===
+                "suspended"
+            ){
+
+                audioContext.resume();
+
+            }
+
+
+            musicPlaying =
+                !musicPlaying;
+
+
+            this.classList.toggle(
+                "playing",
+                musicPlaying
+            );
+
+
+            this.textContent =
+                musicPlaying
+                    ? "♫"
+                    : "♪";
+
+
+            if(musicPlaying){
+
+                melody();
+
+            }else{
+
+                clearTimeout(
+                    musicTimer
+                );
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   СЮРПРИЗДЕР
+========================================= */
+
+const surprises = {
+
+    1:[
+        "💌",
+        "Жашыруун кат",
+        "Сиздин бар болгонуңуз — биз үчүн чоң белек. Сизге дайыма ишенип, сыймыктанып жүрөбүз."
+    ],
+
+    2:[
+        "🌹",
+        "Сизге арналган өзгөчө сөз",
+        "Сиздин жүрөгүңүздөй сулуу адам сейрек кездешет. Ар дайым өзүңүздөй сонун бойдон кала бериңиз."
+    ],
+
+    3:[
+        "🌟",
+        "Сиздин супер күчүңүз",
+        "Сиздин супер күчүңүз — адамдарга жылуулук берүү, мээрим тартуулоо жана оор учурда да күчтүү боло билүү."
+    ],
+
+    4:[
+        "🎂",
+        "Торттун сыры",
+        "Бул тортто калория жок! Себеби бүгүн бардык калориялар бактылуулукка айланып кетти. 😄"
+    ],
+
+    5:[
+        "🪄",
+        "Сыйкырдуу тилек",
+        "Көзүңүздү жумуп, эң чоң кыялыңызды ойлонуңуз. ✨ Бүгүн ошол кыялыңызга алып барган жаңы жол ачылсын!"
+    ],
+
+    6:[
+        "💎",
+        "Сиздин бааңыз",
+        "Сиздин бааңыз алтын менен да өлчөнбөйт. Сиз — үй-бүлөбүз үчүн баа жеткис адамсыз."
+    ],
+
+    7:[
+        "🦋",
+        "Жаңы башталыш",
+        "Жаңы жашыңыз жаңы мүмкүнчүлүктөргө, жагымдуу саякаттарга, күлкүгө жана сонун эскерүүлөргө толсун."
+    ],
+
+    8:[
+        "❤️",
+        "Эң чоң сюрприз",
+        "Эң чоң сюрприз — бул сиздин өзүңүз! Сиз бар болгонуңуз үчүн бул дүйнө бир аз коозураак."
+    ]
+
+};
+
+
+function openSurprise(number){
+
+    const data =
+        surprises[number];
+
+
+    document.getElementById(
+        "modalIcon"
+    ).textContent =
+        data[0];
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        data[1];
+
+
+    document.getElementById(
+        "modalText"
+    ).textContent =
+        data[2];
+
+
+    document
+        .getElementById("modal")
+        .classList.add("show");
+
+
+    confettiBurst(50);
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+document
+    .getElementById("modal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target.id ===
+                "modal"
+            ){
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   КАТ
+========================================= */
+
+function openLetter(){
+
+    document
+        .getElementById("envelope")
+        .classList.add("open");
+
+
+    confettiBurst(60);
+
+}
+
+
+/* =========================================
+   СЮРПРИЗДЕРГЕ ӨТҮҮ
+========================================= */
+
+function goToSurprises(){
+
+    document
+        .getElementById("surprises")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================
+   МИНИ ОЮН
+========================================= */
+
+let score = 0;
+
+
+function newGame(){
+
+    score = 0;
+
+
+    document.getElementById(
+        "score"
+    ).textContent =
+        "0";
+
+
+    const box =
+        document.getElementById(
+            "balloons"
+        );
+
+
+    box.innerHTML = "";
+
+
+    for(
+        let i = 0;
+        i < 10;
+        i++
+    ){
+
+        const balloon =
+            document.createElement(
+                "span"
+            );
+
+
+        balloon.className =
+            "balloon";
+
+
+        balloon.textContent =
+            "🎈";
+
+
+        balloon.style.left =
+            (
+                5 +
+                Math.random()*88
+            ) + "%";
+
+
+        balloon.style.top =
+            (
+                5 +
+                Math.random()*75
+            ) + "%";
+
+
+        balloon.style.animationDelay =
+            Math.random()*2 + "s";
+
+
+        balloon.onclick =
+        function(){
+
+            if(
+                balloon.dataset.hit
+            )
+                return;
+
+
+            balloon.dataset.hit =
+                "true";
+
+
+            balloon.textContent =
+                "💥";
+
+
+            balloon.style.transform =
+                "scale(1.5)";
+
+
+            setTimeout(
+                ()=>{
+                    balloon.remove();
+                },
+                180
+            );
+
+
+            score++;
+
+
+            document.getElementById(
+                "score"
+            ).textContent =
+                score;
+
+
+            confettiBurst(10);
+
+
+            if(score >= 10){
+
+                setTimeout(
+                    megaSurprise,
+                    300
+                );
+
+            }
+
+        };
+
+
+        box.appendChild(
+            balloon
+        );
+
+    }
+
+}
+
+
+newGame();
+
+
+/* =========================================
+   БАШКЫ СЫЙКЫР
+========================================= */
+
+function startMagic(){
+
+    fireworks();
+
+
+    setTimeout(
+        goToSurprises,
+        500
+    );
+
+}
+
+
+/* =========================================
+   ЧОҢ СЮРПРИЗ
+========================================= */
+
+function megaSurprise(){
+
+    confettiBurst(180);
+
+    fireworks();
+
+
+    setTimeout(()=>{
+
+        document.getElementById(
+            "modalIcon"
+        ).textContent =
+            "👑";
+
+
+        document.getElementById(
+            "modalTitle"
+        ).textContent =
+            "ЭЖЕКЕМ, СИЗ СУПЕРСИЗ!";
+
+
+        document.getElementById(
+            "modalText"
+        ).textContent =
+            "Бул сайттагы бардык сюрприздер сиздин бир жылмаюуңуздай сонун боло албайт. Туулган күнүңүз менен! Ар дайым бактылуу, ден соолукта жана сүйүүдө болуңуз! 💖✨🎂";
+
+
+        document
+            .getElementById("modal")
+            .classList.add("show");
+
+    },500);
+
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+const canvas =
+    document.getElementById(
+        "confetti"
+    );
+
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles = [];
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+
+resizeCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+function confettiBurst(
+    amount = 80
+){
+
+    for(
+        let i = 0;
+        i < amount;
+        i++
+    ){
+
+        particles.push({
+
+            x:
+                window.innerWidth / 2,
+
+            y:
+                window.innerHeight * .45,
+
+            vx:
+                (Math.random()-.5)*12,
+
+            vy:
+                -Math.random()*10-3,
+
+            size:
+                4 + Math.random()*7,
+
+            rotation:
+                Math.random()*6,
+
+            life:
+                100 + Math.random()*100
+
+        });
+
+    }
+
+}
+
+
+function animateConfetti(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles =
+        particles.filter(
+            particle =>
+                particle.life > 0
+        );
+
+
+    particles.forEach(
+        particle=>{
+
+            particle.x +=
+                particle.vx;
+
+            particle.y +=
+                particle.vy;
+
+            particle.vy +=
+                .18;
+
+            particle.rotation +=
+                .15;
+
+            particle.life--;
+
+
+            ctx.save();
+
+
+            ctx.translate(
+                particle.x,
+                particle.y
+            );
+
+
+            ctx.rotate(
+                particle.rotation
+            );
+
+
+            const colors = [
+
+                "#ff4f91",
+                "#ffd166",
+                "#9b5cff",
+                "#ffffff",
+                "#66e3ff"
+
+            ];
+
+
+            ctx.fillStyle =
+                colors[
+                    Math.floor(
+                        Math.random()
+                        *
+                        colors.length
+                    )
+                ];
+
+
+            ctx.fillRect(
+
+                -particle.size/2,
+
+                -particle.size/2,
+
+                particle.size,
+
+                particle.size*1.7
+
+            );
+
+
+            ctx.restore();
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        animateConfetti
+    );
+
+}
+
+
+animateConfetti();
+
+
+/* =========================================
+   ФЕЙЕРВЕРК
+========================================= */
+
+function fireworks(){
+
+    for(
+        let i = 0;
+        i < 6;
+        i++
+    ){
+
+        setTimeout(
+            ()=>{
+                confettiBurst(60);
+            },
+            i*220
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
